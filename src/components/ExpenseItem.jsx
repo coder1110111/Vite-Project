@@ -1,3 +1,5 @@
+import "./ExpenseItem.css";
+
 function ExpenseItem() {
     /*When returning more than one element it is necessary to enclose them
     <></> This essentially acts like a container array that holds everything together into a single element
@@ -11,12 +13,12 @@ function ExpenseItem() {
     //     </>
     // )
     return (
-        <div>
+        <div className="expense-item">
             <div>15 July 2025</div>
-            <div>
+            <div className="expense-item__description">
                 <h2>Book</h2>
-                <div>Delhi</div>
-                <div>Rs.100</div>
+                <div className="expense-item__location">Delhi</div>
+                <div className="expense-item__price">Rs.100</div>
             </div>
         </div>
     )
