@@ -1,0 +1,22 @@
+1. It is recommended to use 'map' function instead of 'forEach' when iterating through an array, as React works on "Immutability Concept" meaning that any stored/fetched element should
+    not be used in such a way that it's data can be modified. (Perform encapsulation). For Eg: Suppose we have to iterate through an array. We have two ways to do it
+    a. forEach function
+    b. map function
+
+    In these cases we will always use map as it ensures that the original array stays same, whereas forEach directly works with the elements of that array hence it is not feasable to 
+    maintain Immutable state.
+
+2. Each array element need a unique key when rendering them on the page
+    Yes, when rendering a list of elements using the map() function in React, keys are necessary.
+    Purpose of Keys:
+    A. Efficient Reconciliation:
+        Keys help React efficiently identify which items in a list have changed, been added, or been removed during re-renders. Without keys, React might not be able to accurately 
+        track individual elements, leading to potential performance issues or incorrect UI updates.
+    B. Maintaining Component State:
+        When a list reorders or items are added/removed, keys ensure that the correct component instances are updated or reused. This prevents state from being lost or misapplied to 
+        the wrong elements.
+    Choosing a Key:
+        a. Unique Identifier: The ideal key is a stable, unique identifier for each item within the list. This is often an id from your data source (e.g., a database ID).
+        b. Avoid Index as Key: While using the array index as a key might seem convenient, it is generally discouraged, especially if the list can be reordered, filtered, or have items 
+            added/removed. Using the index can lead to unexpected behavior and performance problems in such scenarios.
+        c. Stable and Predictable: The key should remain consistent for a given item across renders.
