@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import ExpenseItem from './components/ExpenseItem'
-import './App.css'
+// import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
