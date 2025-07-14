@@ -12,13 +12,22 @@ function ExpenseItem() {
     //         <p> Movie - $10</p>
     //     </>
     // )
+
+    /* To use basic javascript inside a .jsx file we must introduce {} brackets and give the relevant javascript within these*/
+    //Introducing data
+    const expenseDate = new Date(2025, 6, 15).toISOString();
+    const expenseTitle = "Book";
+    const expenseAmount = "100.99";
+    const expenseLocation = "Delhi";
+    
+
     return (
         <div className="expense-item">
-            <div>15 July 2025</div>
+            <div>{expenseDate}</div>
+            <div className="expense-item__location">Delhi</div>
             <div className="expense-item__description">
-                <h2>Book</h2>
-                <div className="expense-item__location">Delhi</div>
-                <div className="expense-item__price">Rs.100</div>
+                <h2>{expenseTitle}</h2>
+                <div className="expense-item__price">Rs.{expenseAmount}</div>
             </div>
         </div>
     )
