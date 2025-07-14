@@ -20,3 +20,5 @@
         b. Avoid Index as Key: While using the array index as a key might seem convenient, it is generally discouraged, especially if the list can be reordered, filtered, or have items 
             added/removed. Using the index can lead to unexpected behavior and performance problems in such scenarios.
         c. Stable and Predictable: The key should remain consistent for a given item across renders.
+
+3. Component Splitting

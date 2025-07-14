@@ -25,6 +25,8 @@
 
 
 import "./ExpenseItem.css";
+import ExpenseDate from "./ExpenseDate";
+
 
 function ExpenseItem(props) {           //Here we recieve an Object, we name it prop; prop will hold some key-value pairs that we can use
     /* What used to be */
@@ -42,16 +44,12 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
     // const expenseTitle = props.title;
     // const expenseAmount = props.price;
     // const expenseLocation = props.location;
-    const months = ['January', 'February', 'March', 'April', 'May', 'Jume', 'July', 'August', 'September', 'October', 'November', 'December'];
+    
 
     return (
         <div className="expense-item">
             {/* <div>{props.date.toISOString()}</div> */}       {/*To give a calendar like look we cannot display it as such hence we display in a different way */}
-            <div>
-                <div>{months[props.date.getMonth()]}</div>
-                <div>{props.date.getFullYear()}</div>
-                <div>{props.date.getDate()}</div>
-            </div>
+            <ExpenseDate date={props.date} />
             <div className="expense-item__location">{props.location}</div>
             <div className="expense-item__description">
                 <h2>{props.title}</h2>

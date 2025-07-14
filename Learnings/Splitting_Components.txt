@@ -1,0 +1,90 @@
+Splitted Calendar FUnctionality into a Seperate Components
+And for practice Splitted the Map Function in main App.jsx
+
+Great question! Splitting a component into smaller ones is a core principle of React and helps with code reusability, readability, and maintainability. You should consider splitting a component when any of the following applies:
+
+✅ 1. Too Large or Complex
+If a component is getting too big (e.g., hundreds of lines or deeply nested logic), split it. Each component should ideally focus on a single responsibility.
+
+🔸 Example:
+An Expenses component handling both:
+
+Layout
+
+State logic
+
+List rendering
+
+Filters
+Consider splitting into:
+
+jsx
+Copy
+Edit
+<ExpensesFilter />
+<ExpensesList />
+<ExpensesChart />
+✅ 2. Has Distinct Sub-Parts
+If your JSX includes sections that look like separate visual blocks, you can break them into components.
+
+🔸 Example:
+
+jsx
+Copy
+Edit
+<Card>
+  <CardHeader />
+  <CardBody />
+  <CardFooter />
+</Card>
+✅ 3. Reusability
+If you find yourself copy-pasting similar JSX, or if a UI block might be reused elsewhere, make it a component.
+
+🔸 Example:
+<ExpenseItem /> can be reused wherever an expense needs to be displayed.
+
+✅ 4. Separation of Concerns
+You can split components by:
+
+Presentational Components (UI-only, stateless)
+
+Container Components (handle logic, state, API)
+
+🔸 Example:
+<ExpenseItem /> – Presentational
+<ExpensesContainer /> – Handles filtering, sorting, state
+
+✅ 5. Improved Readability & Testing
+Small components are easier to:
+
+Read
+
+Understand
+
+Test independently
+
+✅ 6. Conditional Rendering
+If part of your JSX renders conditionally, especially based on props or state, you might separate that logic into a smaller component.
+
+✅ 7. Custom Hooks or State Management
+If a component has too much state or effects, consider breaking part of the logic into:
+
+A custom hook (useFilteredExpenses)
+
+A state-handling container
+
+🔻When Not to Split Too Early
+Don’t split just for the sake of it.
+
+Don’t over-engineer tiny blocks unless needed later.
+
+Avoid prop-drilling deeply for components that aren’t reused.
+
+🚀 Rule of Thumb
+“One component, one responsibility.”
+
+If you're describing your component like:
+
+“This component displays expenses and filters and handles sorting and manages local storage and shows error messages…”
+
+🛑 That's a red flag. Split it up.

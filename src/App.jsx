@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import ExpenseItem from './components/ExpenseItem'
+import Expenses from './components/Expenses';
 // import './App.css'
 
 function App() {
@@ -21,17 +21,7 @@ function App() {
       <ExpenseItem date={new Date(2025, 6, 14)} title="Movie Ticket" location="West Delhi" price="360" /> */}
 
       {/*Reintroducing Maps */}
-      {expenses.map((expense) => {
-        return (
-          <ExpenseItem 
-            key={expense.id} 
-            date={expense.date} 
-            location={expense.location} 
-            title={expense.title}
-            price={expense.price}
-          />
-        )
-      })}
+      <Expenses expenses={expenses} />
 
     </>
   )
