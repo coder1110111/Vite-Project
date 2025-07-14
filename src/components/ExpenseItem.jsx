@@ -1,10 +1,33 @@
-import "./ExpenseItem.css";
-
-function ExpenseItem() {
-    /*When returning more than one element it is necessary to enclose them
+//Complex Components
+/*When returning more than one element it is necessary to enclose them
     <></> This essentially acts like a container array that holds everything together into a single element
     As return can only 'return' the last element in the given elements that are not bound it is necessary to bind them into a single element;
-    We can also use <div></div> to make a bigger wrapper element that wraps around multiple element*/
+    We can also use <div></div> to make a bigger wrapper element that wraps around multiple element
+*/
+
+//JavaScript inside .jsx
+    /* To use basic javascript inside a .jsx file we must introduce {} brackets and give the relevant javascript within these*/
+
+// Props
+/* 
+  Props in React can be thought of like parameters in a function.
+  If a function uses hardcoded values, it always returns the same result.
+  But if it takes parameters, it becomes dynamic — it can work with different inputs.
+
+  Similarly, React components become dynamic when they use props.
+  The parent component passes props (as an object) like arguments,
+  and the child component receives them (like parameters).
+
+  This allows us to reuse the same component with different data.
+  For example, we can use a single <ListItem /> component multiple times 
+  with different text, instead of creating a separate component for each item.
+*/
+
+
+import "./ExpenseItem.css";
+
+function ExpenseItem(props) {           //Here we recieve an Object, we name it prop; prop will hold some key-value pairs that we can use
+    /* What used to be */
     // return (
     //     <>                                          
     //         <p> Food - $5</p>
@@ -13,21 +36,21 @@ function ExpenseItem() {
     //     </>
     // )
 
-    /* To use basic javascript inside a .jsx file we must introduce {} brackets and give the relevant javascript within these*/
+
     //Introducing data
-    const expenseDate = new Date(2025, 6, 15).toISOString();
-    const expenseTitle = "Book";
-    const expenseAmount = "100.99";
-    const expenseLocation = "Delhi";
+    // const expenseDate = props.date.toISOString();
+    // const expenseTitle = props.title;
+    // const expenseAmount = props.price;
+    // const expenseLocation = props.location;
     
 
     return (
         <div className="expense-item">
-            <div>{expenseDate}</div>
-            <div className="expense-item__location">Delhi</div>
+            <div>{props.date.toISOString()}</div>
+            <div className="expense-item__location">{props.location}</div>
             <div className="expense-item__description">
-                <h2>{expenseTitle}</h2>
-                <div className="expense-item__price">Rs.{expenseAmount}</div>
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">Rs.{props.price}</div>
             </div>
         </div>
     )
@@ -35,3 +58,5 @@ function ExpenseItem() {
 }
 
 export default ExpenseItem;
+
+
