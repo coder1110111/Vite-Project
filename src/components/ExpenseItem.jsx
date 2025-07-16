@@ -45,6 +45,10 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
     // const expenseTitle = props.title;
     // const expenseAmount = props.price;
     // const expenseLocation = props.location;
+
+    function buttonClickedHandler() {
+        console.log("Button Clicked!");
+    }
     
 
     return (            //Now Everything within this card will be taken as there children hence we need to add a line in Card.jsx ogf accessing children; else they will not show up during build
@@ -55,6 +59,7 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
             <div className="expense-item__description">
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">Rs.{props.price}</div>
+                <button onClick={buttonClickedHandler}>Change Title</button>
             </div>
         </Card>
     )

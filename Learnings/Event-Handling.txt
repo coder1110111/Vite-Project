@@ -1,0 +1,74 @@
+Here's a general overview of event handling in React components, with examples and explanations that are clear and beginner-friendly.
+
+🎯 What is Event Handling in React?
+    Event handling in React is how you respond to user interactions, like clicks, input typing, form submission, etc.
+
+React uses camelCase event names (like onClick) and passes a function as the event handler.
+
+🧠 Key Concepts:
+| Concept       | React Style                       | Notes                        |
+| ------------- | --------------------------------- | ---------------------------- |
+| Event name    | `onClick`, `onChange`, etc.       | Case-sensitive camelCase     |
+| Handler value | A function                        | Called when the event occurs |
+| Event object  | `event` is passed to the function | Similar to browser event     |
+
+🔧 Basic Example: Handling a Button Click
+
+        import React from 'react';
+
+        function ClickButton() {
+        function handleClick() {
+            alert('Button was clicked!');
+        }
+
+        return <button onClick={handleClick}>Click Me</button>;
+        }
+
+--onClick is the React event.
+
+--handleClick is the function that runs when button is clicked.
+
+📥 Handling Input Events
+        function InputHandler() {
+        function handleChange(event) {
+            console.log('Input value:', event.target.value);
+        }
+
+        return <input type="text" onChange={handleChange} />;
+        }
+
+--event.target.value gives you the current input value.
+
+--onChange fires whenever the input changes.
+
+📄 Submitting a Form
+        function FormExample() {
+            function handleSubmit(event) {
+                event.preventDefault(); // Prevent page reload
+                alert('Form submitted!');
+            }
+
+            return (
+                <form onSubmit={handleSubmit}>
+                <input type="text" />
+                <button type="submit">Submit</button>
+                </form>
+            );
+        }
+
+📌 Inline Event Handlers (Optional)
+You can also write the handler inline, but it’s better to define it outside for cleaner code.
+    <button onClick={() => console.log('Clicked!')}>Click</button>
+
+
+✅ Summary
+
+| What You Do         | How You Do It in React                     |
+| ------------------- | ------------------------------------------ |
+| Handle a click      | `onClick={handleClick}`                    |
+| Read input value    | `event.target.value` inside `onChange`     |
+| Prevent form reload | `event.preventDefault()` inside `onSubmit` |
+| Bind functions      | Arrow functions auto-bind in modern React  |
+
+Bonus 🧠: Event Object
+    React wraps the native event in a SyntheticEvent for cross-browser compatibility. It behaves just like the native event in most cases.
