@@ -1,0 +1,78 @@
+📦 Relative vs Absolute Import in React (JS/JSX)
+In React (or any JavaScript project), import statements are used to bring in components, files, or modules. There are two styles of imports: relative and absolute.
+
+🔹 1. Relative Imports
+        You specify the path relative to the current file's location.
+
+    🔧 Syntax:
+        import Header from './components/Header';
+        import Button from '../Button';
+
+    📍 Examples:
+        ./ = current folder
+
+        ../ = parent folder
+
+    📌 This is the default way most beginners write imports.
+
+    ⚠️ Drawback:
+        Hard to read and maintain in large projects with deep nesting.
+
+        Can end up with ugly paths like:
+            import Something from '../../../../utils/helpers';
+
+🔹 2. Absolute Imports
+    You import as if from the root of your project—no ../ needed.
+
+    🔧 Syntax:
+        import Header from 'components/Header';
+        import Button from 'shared/Button';
+    
+    📌 Cleaner, especially in large apps. Easier refactoring.
+
+    🚀 How to Enable in React (Vite or CRA)?
+    ✅ For Vite:
+    
+    Edit your vite.config.js:
+        import { defineConfig } from 'vite'
+        import react from '@vitejs/plugin-react'
+        import path from 'path'
+
+        export default defineConfig({
+        plugins: [react()],
+        resolve: {
+            alias: {
+            '@': path.resolve(__dirname, './src'),
+            },
+        },
+        });
+
+    Then you can do:
+        import MyComponent from '@/components/MyComponent';
+
+    ✅ For Create React App (CRA):
+        You can do this without config using jsconfig.json in the root:
+
+            {
+            "compilerOptions": {
+                "baseUrl": "src"
+            },
+            "include": ["src"]
+            }
+
+        Now this works:
+            import Header from 'components/Header';
+
+| Feature                | Relative Import         | Absolute Import                              |
+| ---------------------- | ----------------------- | -------------------------------------------- |
+| Path starts from       | Current file's location | Project root (or alias)                      |
+| Syntax                 | `../components/Button`  | `components/Button` or `@/components/Button` |
+| Readability            | Messy in deep folders   | Clean and flat                               |
+| Setup needed           | None (default)          | Needs config (alias/baseUrl)                 |
+| Used in small projects | ✅ Yes                  | Not needed                                  |
+| Used in large apps     | ❌ Hard to scale        | ✅ Recommended                              |
+
+✅ Which Should You Use?
+For small projects: Relative is fine.
+
+For medium to large apps: Set up absolute imports early.

@@ -26,6 +26,7 @@
 
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
+import Card from "./Card";
 
 
 function ExpenseItem(props) {           //Here we recieve an Object, we name it prop; prop will hold some key-value pairs that we can use
@@ -46,8 +47,8 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
     // const expenseLocation = props.location;
     
 
-    return (
-        <div className="expense-item">
+    return (            //Now Everything within this card will be taken as there children hence we need to add a line in Card.jsx ogf accessing children; else they will not show up during build
+        <Card className="expense-item">
             {/* <div>{props.date.toISOString()}</div> */}       {/*To give a calendar like look we cannot display it as such hence we display in a different way */}
             <ExpenseDate date={props.date} />
             <div className="expense-item__location">{props.location}</div>
@@ -55,7 +56,7 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
                 <h2>{props.title}</h2>
                 <div className="expense-item__price">Rs.{props.price}</div>
             </div>
-        </div>
+        </Card>
     )
 
 }
