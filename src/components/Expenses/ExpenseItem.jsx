@@ -23,10 +23,10 @@
   with different text, instead of creating a separate component for each item.
 */
 
-
+import { useState } from "react";
 import "./ExpenseItem.css";
 import ExpenseDate from "./ExpenseDate";
-import Card from "./Card";
+import Card from "../UI/Card";
 
 
 function ExpenseItem(props) {           //Here we recieve an Object, we name it prop; prop will hold some key-value pairs that we can use
@@ -46,8 +46,10 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
     // const expenseAmount = props.price;
     // const expenseLocation = props.location;
 
+    const [title, setTitle] = useState(props.title);
+
     function buttonClickedHandler() {
-        console.log("Button Clicked!");
+        setTitle("New Title");
     }
     
 
@@ -57,7 +59,7 @@ function ExpenseItem(props) {           //Here we recieve an Object, we name it 
             <ExpenseDate date={props.date} />
             <div className="expense-item__location">{props.location}</div>
             <div className="expense-item__description">
-                <h2>{props.title}</h2>
+                <h2>{title}</h2>
                 <div className="expense-item__price">Rs.{props.price}</div>
                 <button onClick={buttonClickedHandler}>Change Title</button>
             </div>

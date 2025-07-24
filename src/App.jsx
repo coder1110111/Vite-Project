@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Expenses from './components/Expenses';
+import Expenses from './components/Expenses/Expenses';
+import NewExpense from './components/NewExpense/NewExpense';
 // import './App.css'
 
 function App() {
@@ -19,8 +20,9 @@ function App() {
       <ExpenseItem date={new Date(2025, 6, 14)} title="Pen" location="South Delhi" price="30" />
       <ExpenseItem date={new Date(2025, 6, 14)} title="SweatShirt" location="South Delhi" price="1130" />
       <ExpenseItem date={new Date(2025, 6, 14)} title="Movie Ticket" location="West Delhi" price="360" /> */}
-
+      <NewExpense />
       {/*Reintroducing Maps */}
+
       <Expenses expenses={expenses} />
 
 
